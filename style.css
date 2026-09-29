@@ -1,0 +1,931 @@
+/* =========================================================
+   1. VARIABLES
+========================================================= */
+
+:root {
+
+    /* PALETA PRINCIPAL */
+    --ocean-deep: #073B4C;
+    --ocean: #0E7490;
+    --seafoam: #DFF6F2;
+
+    /* FONDOS */
+    --sand: #F4EFE6;
+    --cream: #FAF9F6;
+    --white: #FFFFFF;
+
+    /* ACENTOS */
+    --coral: #E07A5F;
+    --gold: #C9A227;
+
+    /* TEXTO */
+    --ink: #17252A;
+    --muted: #66777D;
+
+    /* BORDES */
+    --border: #D9E5E7;
+
+    /* SOMBRAS */
+    --shadow-soft: 0 8px 30px rgba(7, 59, 76, 0.08);
+    --shadow-medium: 0 15px 40px rgba(7, 59, 76, 0.14);
+
+    /* REDONDEO */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+
+    /* CONTENEDOR */
+    --container: 1100px;
+
+}
+
+
+/* =========================================================
+   2. RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    font-family:
+        "Poppins",
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    background: var(--cream);
+    color: var(--ink);
+
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   3. ELEMENTOS GENERALES
+========================================================= */
+
+img {
+    display: block;
+    width: 100%;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+ul {
+    list-style: none;
+}
+
+
+.container {
+    width: min(
+        100% - 32px,
+        var(--container)
+    );
+
+    margin-inline: auto;
+}
+
+
+section {
+    padding: 70px 0;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+    line-height: 1.2;
+}
+
+
+h1 {
+    font-size: clamp(2.7rem, 10vw, 5rem);
+}
+
+
+h2 {
+    font-size: 2rem;
+}
+
+
+h3 {
+    font-size: 1.25rem;
+}
+
+
+p {
+    color: var(--muted);
+}
+
+
+/* =========================================================
+   4. HEADER
+========================================================= */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(250, 249, 246, 0.94);
+
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.header .container {
+    padding: 18px 0;
+}
+
+
+.logo {
+    display: block;
+
+    color: var(--ocean-deep);
+
+    font-family: Georgia, serif;
+
+    font-size: 1.5rem;
+    font-weight: 700;
+
+    letter-spacing: -0.5px;
+}
+
+
+.profession {
+    margin-top: 2px;
+
+    color: var(--coral);
+
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+
+.nav {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 18px;
+
+    overflow-x: auto;
+
+    padding-bottom: 4px;
+}
+
+
+.nav a {
+    flex-shrink: 0;
+
+    padding: 8px 13px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50px;
+
+    background: var(--white);
+
+    color: var(--ocean-deep);
+
+    font-size: 0.8rem;
+}
+
+
+.nav a:hover {
+    background: var(--ocean-deep);
+    color: var(--white);
+}
+
+
+/* =========================================================
+   5. HERO
+========================================================= */
+
+.hero {
+    min-height: 85vh;
+
+    display: flex;
+    align-items: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--ocean-deep),
+            #0B596C
+        );
+
+    color: var(--white);
+}
+
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+    height: 300px;
+
+    right: -140px;
+    bottom: -100px;
+
+    border: 1px solid rgba(255,255,255,0.15);
+
+    border-radius: 50%;
+}
+
+
+.hero__eyebrow {
+    margin-bottom: 12px;
+
+    color: #B8E8E2;
+
+    font-size: 0.8rem;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+
+.hero h1 {
+    margin-bottom: 15px;
+
+    font-family: Georgia, serif;
+
+    color: var(--white);
+}
+
+
+.hero h2 {
+    max-width: 650px;
+
+    margin-bottom: 20px;
+
+    color: #DFF6F2;
+
+    font-size: 1.4rem;
+    font-weight: 400;
+}
+
+
+.hero__description {
+    max-width: 600px;
+
+    color: rgba(255,255,255,0.78);
+}
+
+
+.hero__actions {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    margin-top: 30px;
+}
+
+
+/* =========================================================
+   6. BOTONES
+========================================================= */
+
+.btn {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-height: 48px;
+
+    padding: 12px 24px;
+
+    border-radius: 50px;
+
+    background: var(--coral);
+
+    color: var(--white);
+
+    font-weight: 600;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.btn:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 25px rgba(224, 122, 95, 0.3);
+}
+
+
+.btn--outline {
+    background: transparent;
+
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+
+.btn--outline:hover {
+    background: var(--white);
+    color: var(--ocean-deep);
+}
+
+
+/* =========================================================
+   7. SECCIONES
+========================================================= */
+
+.about,
+.education,
+.personal-info,
+.languages {
+    background: var(--cream);
+}
+
+
+.objective,
+.experience,
+.skills,
+.professional-profile {
+    background: var(--white);
+}
+
+
+.signature-dishes {
+    background: var(--sand);
+}
+
+
+.contact {
+    background: var(--ocean-deep);
+}
+
+
+/* =========================================================
+   8. DETAILS / SUMMARY
+========================================================= */
+
+details {
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    background: var(--white);
+
+    border: 1px solid var(--border);
+
+    border-radius: var(--radius-md);
+
+    box-shadow: var(--shadow-soft);
+
+    overflow: hidden;
+}
+
+
+summary {
+    position: relative;
+
+    cursor: pointer;
+
+    padding: 22px 50px 22px 22px;
+
+    color: var(--ocean-deep);
+
+    font-family: Georgia, serif;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    list-style: none;
+}
+
+
+summary::-webkit-details-marker {
+    display: none;
+}
+
+
+summary::after {
+    content: "+";
+
+    position: absolute;
+
+    right: 22px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--coral);
+
+    font-family: Arial, sans-serif;
+
+    font-size: 1.5rem;
+
+    transition: transform 0.25s ease;
+}
+
+
+details[open] > summary::after {
+    transform:
+        translateY(-50%)
+        rotate(45deg);
+}
+
+
+details[open] > summary {
+    border-bottom: 1px solid var(--border);
+
+    background: var(--seafoam);
+}
+
+
+.details__content {
+    padding: 22px;
+}
+
+
+.details__content p {
+    margin-bottom: 15px;
+}
+
+
+.details__content p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================================================
+   9. DETAILS ANIDADOS
+========================================================= */
+
+.details__content details {
+    margin-bottom: 12px;
+
+    box-shadow: none;
+
+    border-radius: var(--radius-sm);
+}
+
+
+.details__content details:last-child {
+    margin-bottom: 0;
+}
+
+
+.details__content details summary {
+    padding: 17px;
+
+    font-family:
+        "Poppins",
+        "Montserrat",
+        Arial,
+        sans-serif;
+
+    font-size: 0.95rem;
+}
+
+
+.details__content details[open] {
+    border-color: #B8DADD;
+}
+
+
+/* =========================================================
+   10. LISTAS
+========================================================= */
+
+.details__content ul {
+    display: grid;
+
+    gap: 10px;
+}
+
+
+.details__content li {
+    position: relative;
+
+    padding-left: 22px;
+
+    color: var(--muted);
+}
+
+
+.details__content li::before {
+    content: "•";
+
+    position: absolute;
+
+    left: 0;
+
+    color: var(--coral);
+
+    font-size: 1.2rem;
+}
+
+
+/* =========================================================
+   11. EXPERIENCIA
+========================================================= */
+
+.experience__item {
+    position: relative;
+
+    padding: 24px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.experience__item:first-child {
+    padding-top: 0;
+}
+
+
+.experience__item:last-child {
+    padding-bottom: 0;
+
+    border-bottom: none;
+}
+
+
+.experience__item h3 {
+    color: var(--ocean-deep);
+}
+
+
+.experience__item h4 {
+    margin: 8px 0;
+
+    color: var(--coral);
+
+    font-size: 0.95rem;
+}
+
+
+.experience__item p {
+    margin-bottom: 5px;
+}
+
+
+.experience__item > p:first-of-type {
+    color: var(--gold);
+
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   12. PLATOS EMBLEMÁTICOS
+========================================================= */
+
+.signature-dishes details {
+    background: rgba(255,255,255,0.8);
+}
+
+
+.signature-dishes .details__content {
+    display: grid;
+
+    gap: 14px;
+}
+
+
+/* ESPACIO PARA FUTURAS IMÁGENES */
+
+.dish__image {
+    width: 100%;
+
+    min-height: 220px;
+
+    border-radius: var(--radius-md);
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--seafoam),
+            var(--sand)
+        );
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+
+.dish__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   13. FOTO DEL CHEF
+========================================================= */
+
+.hero__image {
+    width: 190px;
+    height: 190px;
+
+    margin: 0 auto 30px;
+
+    border-radius: 50%;
+
+    padding: 5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            var(--seafoam)
+        );
+
+    box-shadow: var(--shadow-medium);
+
+    overflow: hidden;
+}
+
+
+.hero__image img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   14. CONTACTO
+========================================================= */
+
+.contact {
+    color: var(--white);
+}
+
+
+.contact details {
+    background: transparent;
+
+    border-color: rgba(255,255,255,0.2);
+
+    box-shadow: none;
+}
+
+
+.contact summary {
+    color: var(--white);
+}
+
+
+.contact details[open] > summary {
+    background: rgba(255,255,255,0.08);
+
+    border-color: rgba(255,255,255,0.15);
+}
+
+
+.contact .details__content p {
+    color: rgba(255,255,255,0.75);
+}
+
+
+.contact strong {
+    color: var(--white);
+}
+
+
+/* =========================================================
+   15. FOOTER
+========================================================= */
+
+.footer {
+    padding: 35px 0;
+
+    background: #052F3D;
+
+    text-align: center;
+}
+
+
+.footer p {
+    margin-bottom: 5px;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 0.85rem;
+}
+
+
+.footer p:first-child {
+    color: var(--white);
+
+    font-family: Georgia, serif;
+
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   16. TABLET
+========================================================= */
+
+@media (min-width: 600px) {
+
+    .container {
+        width: min(
+            100% - 48px,
+            var(--container)
+        );
+    }
+
+
+    .hero__actions {
+        flex-direction: row;
+
+        justify-content: flex-start;
+    }
+
+
+    .hero__actions .btn {
+        min-width: 170px;
+    }
+
+
+    .signature-dishes .details__content {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+/* =========================================================
+   17. DESKTOP
+========================================================= */
+
+@media (min-width: 900px) {
+
+    section {
+        padding: 100px 0;
+    }
+
+
+    /* HEADER */
+
+    .header .container {
+        display: flex;
+
+        align-items: center;
+
+        gap: 30px;
+
+        padding: 16px 0;
+    }
+
+
+    .profession {
+        margin: 0;
+
+        margin-right: auto;
+    }
+
+
+    .nav {
+        margin: 0;
+
+        overflow: visible;
+    }
+
+
+    .nav a {
+        border: none;
+
+        background: transparent;
+
+        padding: 8px 10px;
+    }
+
+
+    .nav a:hover {
+        background: var(--seafoam);
+
+        color: var(--ocean-deep);
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 90vh;
+    }
+
+
+    .hero__content {
+        max-width: 800px;
+    }
+
+
+    .hero h2 {
+        font-size: 1.8rem;
+    }
+
+
+    .hero__image {
+        width: 240px;
+        height: 240px;
+
+        margin-left: 0;
+    }
+
+
+    /* DETAILS */
+
+    details {
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease;
+    }
+
+
+    details:hover {
+        box-shadow: var(--shadow-medium);
+    }
+
+
+    /* EXPERIENCIA */
+
+    .experience__item {
+        padding: 30px 0;
+    }
+
+
+    /* PLATOS */
+
+    .signature-dishes .details__content {
+        grid-template-columns:
+            repeat(3, 1fr);
+    }
+
+
+    .dish__image {
+        min-height: 240px;
+    }
+
+}
+
+
+/* =========================================================
+   18. REDUCIR ANIMACIONES
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+
+}
